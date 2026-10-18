@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 580" role="img" aria-labelledby="title"><title id="title">Ilustração de produtos variados MimoMix</title>
+<defs>
+<radialGradient id="glow"><stop stop-color="#ffd5ff"/><stop offset=".42" stop-color="#f75dff" stop-opacity=".48"/><stop offset="1" stop-color="#6b2aeb" stop-opacity="0"/></radialGradient>
+<linearGradient id="pod" x2=".1" y2="1"><stop stop-color="#ffa6fe"/><stop offset=".35" stop-color="#a13bf3"/><stop offset="1" stop-color="#391080"/></linearGradient>
+<linearGradient id="white" x2=".6" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#d7d6ef"/></linearGradient>
+<linearGradient id="blue" x2="0" y2="1"><stop stop-color="#93efff"/><stop offset="1" stop-color="#4385f3"/></linearGradient>
+<linearGradient id="mag" x2="0" y2="1"><stop stop-color="#ff7dd5"/><stop offset="1" stop-color="#e61795"/></linearGradient>
+<linearGradient id="yellow" x2="0" y2="1"><stop stop-color="#ffef66"/><stop offset="1" stop-color="#ff9f23"/></linearGradient>
+<filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="20" stdDeviation="14" flood-color="#200035" flood-opacity=".66"/></filter>
+<filter id="shine"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<ellipse cx="421" cy="285" rx="320" ry="245" fill="url(#glow)"/>
+<g fill="none" stroke="#ffbdfc" opacity=".38"><ellipse cx="415" cy="275" rx="328" ry="232" stroke-dasharray="7 9" stroke-width="2"/><ellipse cx="413" cy="288" rx="279" ry="190" stroke-width="2"/></g>
+<g fill="#ffe960"><path d="M82 94l11 30 30 11-30 10-11 31-11-31-30-10 30-11Z"/><path d="M714 130l8 21 21 8-21 8-8 22-8-22-22-8 22-8Z"/><path d="M684 368l8 24 24 8-24 8-8 24-8-24-24-8 24-8Z"/></g>
+<ellipse cx="430" cy="483" rx="328" ry="71" fill="#f47afb" opacity=".62" filter="url(#shine)"/>
+<g filter="url(#shadow)">
+<ellipse cx="425" cy="483" rx="331" ry="80" fill="url(#pod)" stroke="#fbbeff" stroke-width="8"/>
+<path d="M105 487Q425 570 744 478" stroke="#ff8aff" stroke-width="14" fill="none" opacity=".85"/>
+<ellipse cx="425" cy="461" rx="302" ry="57" fill="none" stroke="#ffd9ff" stroke-width="5" opacity=".62"/>
+</g>
+<!-- Headphone set -->
+<g transform="translate(172 189) rotate(-10)" filter="url(#shadow)">
+<path d="M-73 53V-23Q-73-147 46-147Q162-145 162-21V55" fill="none" stroke="#eea3e5" stroke-width="36" stroke-linecap="round"/>
+<path d="M-72 30V-20Q-70-132 47-132Q142-132 149-20V32" fill="none" stroke="url(#white)" stroke-width="23" stroke-linecap="round"/>
+<rect x="-107" y="3" width="53" height="129" rx="25" fill="url(#white)" stroke="#f9d8fa" stroke-width="6"/>
+<rect x="143" y="3" width="54" height="129" rx="25" fill="url(#white)" stroke="#f9d8fa" stroke-width="6"/>
+<rect x="-107" y="32" width="15" height="74" rx="7" fill="#ffa0cb"/><rect x="183" y="32" width="14" height="74" rx="7" fill="#ffa0cb"/>
+</g>
+<!-- Smartwatch -->
+<g transform="translate(483 201) rotate(13)" filter="url(#shadow)">
+<rect x="-48" y="-143" width="103" height="268" rx="37" fill="url(#white)"/>
+<rect x="-80" y="-83" width="166" height="182" rx="37" fill="#22233b" stroke="#ffd8f6" stroke-width="12"/>
+<rect x="-63" y="-67" width="132" height="149" rx="25" fill="#1a1236"/>
+<text x="5" y="-2" text-anchor="middle" font-family="Arial" font-size="40" font-weight="bold" fill="#e5fff9">10</text>
+<text x="5" y="31" text-anchor="middle" font-family="Arial" font-size="31" font-weight="bold" fill="#e5fff9">09</text>
+<circle cx="8" cy="-46" r="9" fill="#ef70d8"/><circle cx="39" cy="-46" r="9" fill="#9bf2fc"/>
+</g>
+<!-- White gamepad -->
+<g transform="translate(354 382) rotate(-10)" filter="url(#shadow)">
+<path d="M-110-48Q-139-44-169 5Q-208 95-159 111Q-131 119-92 83L-55 42H56L94 86Q143 129 174 99Q209 65 172-11Q150-59 117-58Q8-75-110-48Z" fill="url(#white)" stroke="#ffe1ff" stroke-width="7"/>
+<rect x="-111" y="-20" width="77" height="13" rx="4" fill="#6465a5"/><rect x="-80" y="-52" width="14" height="77" rx="5" fill="#6465a5"/>
+<circle cx="106" cy="-22" r="10" fill="#f154b6"/><circle cx="132" cy="1" r="10" fill="#5ca9f5"/><circle cx="99" cy="27" r="10" fill="#ffe45a"/><circle cx="78" cy="2" r="10" fill="#75c879"/>
+<circle cx="-36" cy="52" r="19" fill="#403e68"/><circle cx="39" cy="52" r="19" fill="#403e68"/>
+</g>
+<!-- Air fryer -->
+<g transform="translate(651 292) rotate(6)" filter="url(#shadow)">
+<rect x="-81" y="-123" width="155" height="214" rx="47" fill="#212032" stroke="#67657a" stroke-width="6"/>
+<rect x="-64" y="-91" width="123" height="64" rx="18" fill="#292334" stroke="#e7bd72" stroke-width="4"/>
+<circle cx="0" cy="-59" r="21" fill="#b78538" stroke="#f7d76d" stroke-width="4"/><text x="0" y="-53" fill="#fff4c0" font-size="17" font-family="Arial" text-anchor="middle">180°</text>
+<rect x="-13" y="-12" width="28" height="65" rx="11" fill="#4a4555" stroke="#aaa5aa" stroke-width="4"/>
+</g>
+<!-- Tiny toy car -->
+<g transform="translate(166 430) rotate(-8)" filter="url(#shadow)">
+<path d="M-91 23L-68-31H52L89 14V47H-92Z" fill="url(#mag)" stroke="#fa9bff" stroke-width="6"/>
+<path d="M-48-30L-32-64H21L49-30Z" fill="#9ef1ff" stroke="#baecff" stroke-width="4"/>
+<circle cx="-60" cy="53" r="25" fill="#1d1632" stroke="#a0a0b8" stroke-width="6"/><circle cx="62" cy="53" r="25" fill="#1d1632" stroke="#a0a0b8" stroke-width="6"/>
+<rect x="-93" y="11" width="15" height="16" rx="6" fill="#ffe75b"/><rect x="78" y="11" width="15" height="16" rx="6" fill="#ffe75b"/>
+</g>
+<!-- gift box -->
+<g transform="translate(674 424) rotate(7)" filter="url(#shadow)">
+<rect x="-62" y="-48" width="126" height="116" rx="13" fill="url(#yellow)"/>
+<rect x="-74" y="-67" width="148" height="31" rx="7" fill="#ffc52d"/>
+<rect x="-12" y="-67" width="27" height="136" fill="url(#mag)"/>
+<path d="M0-67C-121-104-59-149 0-72C63-159 115-105 0-67" fill="none" stroke="#f0369d" stroke-width="18" stroke-linecap="round"/>
+</g>
+</svg>

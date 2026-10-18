@@ -37,3 +37,10 @@
 .v7-lead-pill{font-size:10px;display:inline-block;margin-bottom:13px;padding:7px 11px;border-radius:999px;background:#f8ebff;color:#aa36cf;font-weight:900}
 @media(max-width:900px){.brand-image{width:200px}.v7-steps .list{grid-template-columns:repeat(2,1fr)}.v6-featured .feature-banner{min-height:145px}}
 @media(max-width:570px){.brand-image{width:160px}.head .brand{max-width:165px}.footer .brand-image{width:185px}.v7-steps{padding:20px 0}.v7-steps .inner{padding:17px}.v7-steps h2{font-size:24px}.v7-steps .list{gap:8px}.v7-steps .item{padding:12px}.v7-steps .item b{font-size:10px}.v7-steps .item small{font-size:9px}.v6-preview-card .imgbox{height:132px}.product-picture{height:146px}}
+
+/* Arte original de produtos (sem anúncios fictícios) */
+.hero.v5-hero .v5-stage{background:url("hero-produtos.svg") center center / contain no-repeat}
+.hero.v5-hero .v5-stage .v5-product,.hero.v5-hero .v5-stage .pedestal,
+.hero.v5-hero .v5-stage .v5-spark,.hero.v5-hero .v5-stage .v5-promo-sticker{display:none!important}
+.hero.v5-hero .v5-stage:before{display:none!important}
+@media(max-width:850px){.hero.v5-hero .v5-stage{background-size:contain;background-position:50% 50%}}

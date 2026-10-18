@@ -3,8 +3,8 @@
 ## Situação atual em 18/10/2026
 
 - O site é uma vitrine de pré-lançamento hospedada no GitHub Pages.
-- Referências de preços em `supplier-prices.js` são **preços de varejo anunciados pela Droyp**, não seus preços de venda.
-- Apenas custo Drop do massageador foi conferido em página pública (R$ 49,00; varejo do fornecedor R$ 69,90). Reconfirme antes de qualquer compra.
+- `supplier-prices.js` guarda apenas referências e status públicos; não expõe valores de aquisição. O número mostrado no painel Droyp pode ser o custo de revenda, não o preço que o consumidor pagará.
+- O painel do revendedor informou o custo por unidade do kit 2 baterias + base carregadora compatível com Xbox Series S/X (SKU AKY-DOC-VIDEOGAME-1) e estoque naquele momento. Por segurança comercial, o custo de aquisição não é publicado neste repositório público. Reconfirmar estoque e custo a cada pedido.
 - As imagens atuais são ilustrativas. Não é correto apresentá-las como fotos específicas dos SKUs da Droyp.
 - A origem, custo real, estoque, prazo e cálculo do frete por CEP precisam ser confirmados pelo fornecedor.
 - Descontos devem ser calculados com histórico/preço anterior real da MimoMix, jamais com valores fictícios.
@@ -28,3 +28,10 @@
 - https://droyp.com.br/como-funciona
 
 Data de consulta pública: 18/10/2026. As informações são sujeitas a alteração.
+
+## Comparativo do kit Xbox
+
+- Pesquisa de preço de concorrentes: anúncios de kits comparáveis em várias faixas; nem sempre são o mesmo modelo ou têm os mesmos termos de entrega.
+- Comparar também a Akymotech: https://akymotech.com.br/produto/2-baterias-base-carregador-compativel-com-xbox-series-s-x/ (preço "a partir" depende de modalidade e condições, não tratar como custo unitário de dropshipping confirmado).
+- Não habilitar checkout do kit até calcular frete real, custo de aquisição atualizado, tarifa de pagamento, CAC, tributos, políticas e custo de devolução.
+- A arte `site/charger-xbox.svg` é ilustrativa, não foto do SKU. Substituir por foto oficial somente com autorização de uso pelo fornecedor.

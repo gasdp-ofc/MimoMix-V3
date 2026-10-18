@@ -11,7 +11,7 @@
    bluetooth:unsplash("photo-1505740420928-5e560c06d30e"),
    adaptador:unsplash("photo-1500530855697-b586d89ba3ee"),
    p2:unsplash("photo-1546435770-a3e426bf472b"),
-   game:unsplash("photo-1493711662062-fa541adb3fc8"),
+   game:"charger-xbox.svg",
    abridor:unsplash("photo-1510812431401-41d2bd2722f3"),
    camera:unsplash("photo-1503376780353-7e6692767b70")
   };

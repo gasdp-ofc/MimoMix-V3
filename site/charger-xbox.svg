@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+<title id="title">Ilustração de base carregadora para duas baterias</title>
+<desc id="desc">Representação ilustrativa, não fotografia do produto fornecido.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#e4d6ff"/><stop offset="1" stop-color="#f4f9f6"/></linearGradient>
+<linearGradient id="case" x2="0" y2="1"><stop stop-color="#585e6c"/><stop offset=".52" stop-color="#1e2028"/><stop offset="1" stop-color="#050609"/></linearGradient>
+<linearGradient id="battery" x2="0" y2="1"><stop stop-color="#353b44"/><stop offset="1" stop-color="#080a0e"/></linearGradient>
+<filter id="shadow"><feGaussianBlur stdDeviation="14"/></filter></defs>
+<rect width="640" height="640" rx="34" fill="url(#bg)"/>
+<circle cx="320" cy="275" r="240" fill="#ffffff" opacity=".45"/>
+<ellipse cx="320" cy="535" rx="214" ry="32" fill="#2b1546" opacity=".2" filter="url(#shadow)"/>
+<path d="M192 186C162 138 180 114 198 97" fill="none" stroke="#242733" stroke-width="10" stroke-linecap="round"/>
+<path d="M194 189c-45 6-45 30-44 46" fill="none" stroke="#262935" stroke-width="8" stroke-linecap="round"/>
+<rect x="140" y="231" width="34" height="17" rx="4" fill="#252a30"/>
+<path d="M190 356L431 352 514 474Q518 493 490 505L185 511Q144 509 145 477Z" fill="url(#case)" stroke="#535c65" stroke-width="8"/>
+<path d="M201 372L417 370 475 472 183 475Z" fill="#0d1118" stroke="#1f2b31" stroke-width="10"/>
+<path d="M212 386h193l45 72H193Z" fill="#222932"/>
+<path d="M214 395h44l-26 60h-44Z" fill="#144c28"/>
+<path d="M266 395h100l27 60H240Z" fill="#12161e"/>
+<path d="M374 395h24l40 60h-42Z" fill="#154e2c"/>
+<path d="M191 467h261" stroke="#71fe8a" stroke-width="8" opacity=".72" stroke-linecap="round"/>
+<rect x="217" y="212" width="83" height="197" rx="14" fill="url(#battery)" stroke="#6b7278" stroke-width="6"/>
+<rect x="342" y="209" width="83" height="200" rx="14" fill="url(#battery)" stroke="#5d6873" stroke-width="6"/>
+<rect x="221" y="190" width="75" height="37" rx="9" fill="#20242c"/><rect x="347" y="187" width="75" height="37" rx="9" fill="#20242c"/>
+<path d="M252 258v102M376 258v102" stroke="#abb5bd" stroke-width="2" opacity=".22"/>
+<text x="260" y="314" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="#e4edee" transform="rotate(90 260 314)">1200 mAh</text>
+<text x="385" y="310" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="#e4edee" transform="rotate(90 385 310)">1200 mAh</text>
+<circle cx="322" cy="432" r="15" fill="#69ef77"/><circle cx="322" cy="432" r="8" fill="#afffbd"/>
+<text x="320" y="579" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#684580" font-weight="bold">IMAGEM ILUSTRATIVA</text>
+</svg>

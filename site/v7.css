@@ -1,0 +1,39 @@
+
+/* MimoMix visual v7: identidade original e melhor leitura comercial */
+.brand{gap:0;min-width:0}
+.brand-image{display:block;width:230px;max-width:100%;height:auto;object-fit:contain}
+.footer .brand-image{width:200px}
+.head{gap:16px}
+.hero.v5-hero{border:1px solid #de75fc;border-bottom:4px solid #f534c4;box-shadow:0 24px 54px #5b10b640,0 0 0 1px #5f149933;background:radial-gradient(circle at 72% 55%,#f643ee 0%,#a522dd 23%,transparent 48%),linear-gradient(115deg,#160333 5%,#43107d 45%,#7b13db 75%,#c01bad 100%)}
+.hero.v5-hero:before{opacity:.4}
+.hero.v5-hero .pill{background:linear-gradient(115deg,#ff1ca5,#831fee);border-color:#f7b6ff;box-shadow:0 0 28px #ff6ff887}
+.hero.v5-hero h1{font-weight:950;text-shadow:0 6px 16px #20053288}
+.v5-stage .pedestal{box-shadow:0 24px 60px #1d034cbd,0 0 30px #ff9afa,inset 0 7px 18px #ffffff70}
+.v5-product{box-shadow:0 13px 28px #19033f9c,0 0 28px #dc5affad}
+.v5-product:after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 18px #ffffff29;pointer-events:none}
+.v5-promo-sticker{background:linear-gradient(115deg,#fff07c,#ffcd42);box-shadow:0 12px 22px #39105874}
+.v5-side-card{transition:transform .25s}
+.v5-side-card:hover{transform:translateX(-7px)}
+.v6-ribbon{background:linear-gradient(95deg,#fa1f80,#c524cc 50%,#601de6);border:1px solid #ffa6f0}
+.v6-featured .feature-banner{min-height:164px;border:1px solid #ffffffb2;box-shadow:0 16px 28px #5c178c30}
+.v6-featured .feature-banner.pink{background:radial-gradient(circle at 80% 35%,#ff83c9 0%,transparent 47%),linear-gradient(115deg,#ff2379,#b31ce3)}
+.v6-featured .feature-banner.purple{background:radial-gradient(circle at 75% 32%,#9469ff 0%,transparent 53%),linear-gradient(110deg,#2b096b,#5331d7)}
+.v6-featured .feature-banner.orange{background:radial-gradient(circle at 79% 27%,#fff58f,transparent 40%),linear-gradient(115deg,#ffdb4b,#ff8442)}
+.v6-preview-card{transition:transform .25s,box-shadow .25s}
+.v6-preview-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px #58138d2c}
+.v6-preview-card .imgbox{height:153px}
+.product-picture{height:200px}
+.product-card{transition:transform .23s,box-shadow .23s}
+.product-card:hover{box-shadow:0 20px 34px #35105a29}
+.v7-steps{padding:35px 0 38px}
+.v7-steps .inner{border:1px solid #ebd9fd;background:#fff;box-shadow:0 15px 34px #4e169314;border-radius:21px;padding:25px}
+.v7-steps h2{font:900 29px/1.1 Outfit,sans-serif;margin:0 0 9px}
+.v7-steps p{font-size:12px;color:#88739d;line-height:1.7;margin-bottom:18px}
+.v7-steps .list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.v7-steps .item{border:1px solid #ece1fa;border-radius:15px;padding:16px;background:linear-gradient(160deg,#fff,#fbf7ff)}
+.v7-steps .item span{font-size:27px}
+.v7-steps .item b{display:block;margin-top:10px;font-size:12px}
+.v7-steps .item small{display:block;margin-top:5px;color:#867693;font-size:10px;line-height:1.5}
+.v7-lead-pill{font-size:10px;display:inline-block;margin-bottom:13px;padding:7px 11px;border-radius:999px;background:#f8ebff;color:#aa36cf;font-weight:900}
+@media(max-width:900px){.brand-image{width:200px}.v7-steps .list{grid-template-columns:repeat(2,1fr)}.v6-featured .feature-banner{min-height:145px}}
+@media(max-width:570px){.brand-image{width:160px}.head .brand{max-width:165px}.footer .brand-image{width:185px}.v7-steps{padding:20px 0}.v7-steps .inner{padding:17px}.v7-steps h2{font-size:24px}.v7-steps .list{gap:8px}.v7-steps .item{padding:12px}.v7-steps .item b{font-size:10px}.v7-steps .item small{font-size:9px}.v6-preview-card .imgbox{height:132px}.product-picture{height:146px}}

@@ -50,7 +50,8 @@ window.openProduct=function(id){
  const p=catalog.find(item=>item.id===id);if(!p)return;
  const box=document.getElementById("dialog-body"),dlg=document.getElementById("product-dialog");if(!box||!dlg)return;
  const info=productInfo[id]||{};
- const pics=gallery[id]||[{src:catalogImages[id],alt:"Imagem ilustrativa, não fotografia validada do SKU",label:"Imagem ilustrativa"}];
+ const official=(window.MIMOMIX_PUBLIC_PRODUCT_IMAGES||{})[id];
+ const pics=gallery[id]||[{src:official||catalogImages[id]||"mimomix-brand.svg",alt:official?"Foto autorizada do produto":"Imagem ilustrativa, não fotografia validada do SKU",label:official?"Foto do produto":"Imagem ilustrativa"}];
  const reviews=Array.isArray(verifiedReviews[id])?verifiedReviews[id].filter(r=>r.approved===true&&r.verifiedPurchase===true):[];
  const stars=reviews.length?reviews.reduce((sum,r)=>sum+r.stars,0)/reviews.length:null;
  const availablePay=typeof checkoutHref==="function"?checkoutHref(id):null;

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 680" role="img" aria-label="Arte ilustrativa MimoMix bluetooth">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#d7c7ff"/><stop offset="1" stop-color="#b8affd"/></linearGradient>
+<radialGradient id="light"><stop stop-color="#fff" stop-opacity=".94"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="pod" x2=".7" y2="1"><stop stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#ebdcff" stop-opacity=".52"/></linearGradient>
+<filter id="shadow"><feGaussianBlur stdDeviation="17"/></filter></defs>
+<rect width="800" height="680" fill="url(#bg)"/>
+<circle cx="410" cy="300" r="315" fill="url(#light)" opacity=".75"/>
+<circle cx="622" cy="100" r="130" fill="#fff" opacity=".23"/>
+<circle cx="128" cy="530" r="170" fill="#fff" opacity=".21"/>
+<path d="M65 170 C182 40 278 78 385 134" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="10 17" opacity=".53"/>
+<path d="M506 545 C625 555 690 480 744 355" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="10 17" opacity=".42"/>
+<g fill="#fff" opacity=".87"><path d="m159 96 7 21 21 7-21 8-7 21-8-21-22-8 22-7z"/><path d="m665 209 5 14 14 5-14 5-5 14-5-14-14-5 14-5z"/><circle cx="90" cy="338" r="7"/><circle cx="710" cy="490" r="8"/></g>
+<ellipse cx="410" cy="555" rx="251" ry="38" fill="#5335ad" opacity=".25" filter="url(#shadow)"/>
+<ellipse cx="410" cy="530" rx="236" ry="49" fill="url(#pod)"/>
+<text x="400" y="420" text-anchor="middle" font-family="Apple Color Emoji,Segoe UI Emoji,Noto Color Emoji,sans-serif" font-size="300">🎧</text>
+<rect x="28" y="26" width="168" height="44" rx="22" fill="#fff" opacity=".86"/>
+<text x="112" y="55" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="22" fill="#703bc5">MimoMix ✦</text>
+<rect x="242" y="602" width="318" height="43" rx="21" fill="#fff" opacity=".79"/>
+<text x="401" y="630" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#7e5fa2">ARTE ILUSTRATIVA</text>
+</svg>

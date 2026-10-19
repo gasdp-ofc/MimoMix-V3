@@ -1,8 +1,10 @@
-// Configuração pública de links externos de pagamento.
- // Não coloque tokens, chaves privadas nem credenciais neste arquivo.
- // Os links de checkout precisam pertencer à SUA loja e estar realmente operacionais.
+// MimoMix — links públicos de checkout hospedado.
+// Produto Xbox está INATIVO na Yampi e frete/logística ainda usam dados provisórios.
+// Nunca publicar chaves secretas, CPF, tokens ou dados de clientes aqui.
 window.MIMOMIX_CHECKOUT = Object.freeze({
-  enabled: false,
-  provider: null, // Ex.: "Yampi", após a conexão
-  productLinks: Object.freeze({}) // id do catálogo: "https://sua-loja/.../checkout"
+  enabled: false, // segurança: liberar apenas depois de validar ponta a ponta
+  provider: "Yampi",
+  productLinks: Object.freeze({
+    game: "https://mimo-mix2.pay.yampi.com.br/r/4O2B61C2UX"
+  })
 });

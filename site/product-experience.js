@@ -43,7 +43,7 @@ const productInfo={
 const safe=t=>String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const money=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
 // Apenas dados de compras confirmadas e autorizados poderão ser incluídos.
-const verifiedReviews=Object.freeze({});
+const verifiedReviews=Object.freeze(window.MIMOMIX_VERIFIED_REVIEWS||{});
 window.MIMOMIX_REVIEW_RECORDS=verifiedReviews;
 window.openProduct=function(id){
  if(typeof catalog==="undefined")return;

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "lastReviewedAt": "2026-10-19",
+  "products": [
+    {
+      "id": "game",
+      "name": "Kit 2 baterias e base carregadora Xbox Series S/X",
+      "sku": "AKY-DOC-VIDEOGAME-1",
+      "source": "Yampi",
+      "price": 159.9,
+      "priceKind": "draft",
+      "status": "inactive",
+      "approvedForSale": false,
+      "shippingVerified": false,
+      "stockVerified": false,
+      "checkoutUrl": "",
+      "showInCatalog": true,
+      "reviewNote": "Preço provisório; cadastro e frete pendentes."
+    }
+  ]
+}

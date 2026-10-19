@@ -28,14 +28,14 @@
         if(!id||!wrap||wrap.querySelector("img.product-photo"))continue;
         const image=document.createElement("img");
         const approved=(window.MIMOMIX_PUBLIC_PRODUCT_IMAGES||{})[id];
-        const imageSrc=approved||images[id];
+        const imageSrc=approved||(window.MIMOMIX_EDITORIAL_IMAGES||{})[id]||images[id];
         if(!imageSrc)continue;
         image.src=imageSrc;
-        image.alt=approved?"Fotografia autorizada do produto":"Imagem ilustrativa da categoria; não representa necessariamente o produto ofertado";
+        image.alt=approved?"Foto autorizada do produto":"Arte ilustrativa MimoMix, não é fotografia do produto ofertado";
         image.loading="lazy";image.className="product-photo";
         withFallback(image,wrap,"photo-failed");
         wrap.insertBefore(image,wrap.querySelector(".em"));
-        const note=document.createElement("span");note.className="photo-label";note.textContent=approved?"Foto fornecida e autorizada":"Imagem ilustrativa";
+        const note=document.createElement("span");note.className="photo-label";note.textContent=approved?"Foto autorizada":"Arte ilustrativa";
         wrap.appendChild(note);
       }
     }

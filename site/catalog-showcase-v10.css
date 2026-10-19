@@ -1,0 +1,24 @@
+
+/* MimoMix 2026 – catálogo completo com 24 artes próprias e análise editorial */
+.product-grid{align-items:stretch}
+.product-card{border:1px solid #e7dbf8!important;border-radius:22px!important;box-shadow:0 13px 24px rgba(77,30,132,.07)!important}
+.product-card:hover{border-color:#b994ef!important;box-shadow:0 24px 48px rgba(77,30,132,.14)!important}
+.product-picture{height:200px!important;background:linear-gradient(140deg,#f5eaff,#f1eafa)!important}
+.product-picture img.product-photo{width:100%;height:100%;object-fit:cover!important;position:absolute;inset:0}
+.product-picture .photo-label{z-index:4;bottom:9px!important;font-size:9px!important;letter-spacing:.04em;font-weight:900;background:#ffffffdb;color:#704398;padding:4px 6px;border-radius:6px}
+.product-info{padding:15px 13px!important;gap:0!important}
+.product-info h3{min-height:55px!important;font:800 14px/1.35 Outfit,sans-serif!important;letter-spacing:-.02em}
+.product-info p{min-height:47px!important;line-height:1.5!important;color:#867a96!important}
+.mm-v10-curator{background:#fbf7ff;border:1px solid #f0e6fc;padding:10px;margin:10px 0 8px;border-radius:12px;font-size:10px;line-height:1.48;color:#745d8f}
+.mm-v10-curator strong{display:block;font-size:10px;color:#6439a3;margin-bottom:4px}
+.mm-v10-curator span{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.mm-v10-editorial{margin-top:16px;padding:15px;background:linear-gradient(120deg,#f4ecff,#fff2f9);border:1px solid #e7d7fa;border-radius:15px;font-size:12px;line-height:1.7;color:#6b438e}
+.mm-review-teaser{color:#77678f!important;font-size:10px!important;min-height:21px}
+.mm-checkout-off,.mm-cta-disabled{font-weight:800;line-height:1.5}
+.mm-social-proof{box-shadow:0 10px 25px #4b248d10}
+.v6-preview-card .imgbox img{object-fit:cover!important}
+.v6-preview-card .imgbox .tag{z-index:2}
+.v6-preview-card .content p{min-height:52px}
+#product-grid .product-btn{border-color:#d8baf7!important}
+@media(min-width:1200px){.product-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:18px}.product-picture{height:225px!important}}
+@media(max-width:600px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px}.product-picture{height:150px!important}.product-info{padding:12px 10px!important}.product-info h3{font-size:13px!important;min-height:57px!important}.product-info p{font-size:10px!important;min-height:0!important}.mm-v10-curator{font-size:9px;padding:8px}.mm-v10-curator span{-webkit-line-clamp:2}.mm-v10-curator strong{font-size:9px}.product-info .price-hold{min-height:50px}.v6-preview-card .imgbox img{object-fit:cover!important}}

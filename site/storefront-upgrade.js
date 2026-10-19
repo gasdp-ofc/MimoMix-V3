@@ -7,6 +7,8 @@ const esc=(x)=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":
 const authorizedHost=(s)=>{try{const url=new URL(s);return url.protocol==="https:" && /(^|\.)yampi\.com\.br$/.test(url.hostname)?url.href:null}catch(_){return null}};
 const yampi=new Map();
 window.MIMOMIX_PUBLIC_PRODUCT_IMAGES = Object.create(null);
+window.MIMOMIX_EDITORIAL_IMAGES = Object.create(null);
+window.MIMOMIX_PRODUCT_NOTES = Object.create(null);
 let loaded=false;
 function isReady(p){
  const r=yampi.get(p.id);
@@ -32,6 +34,9 @@ function renderFeatured(){
   if(title)title.textContent=p.name;
   if(price){price.innerHTML=currentPrice(p)+'<span class="mm-state-line"><span class="dot"></span>'+(isReady(p)?"Disponível para compra":"Em análise comercial")+'</span>';}
   if(button){button.textContent=isReady(p)?"Ver e comprar →":"Ver detalhes →";button.dataset.open=p.id;}
+  const picture=card.querySelector(".imgbox img");
+  const illustration=(window.MIMOMIX_PUBLIC_PRODUCT_IMAGES||{})[p.id]||(window.MIMOMIX_EDITORIAL_IMAGES||{})[p.id];
+  if(picture&&illustration){picture.src=illustration;picture.alt="Arte ilustrativa da MimoMix para "+p.name;}
   if(tag)tag.textContent=isReady(p)?"DISPONÍVEL":"EM ANÁLISE";
  });
 }
@@ -67,6 +72,15 @@ function decorateCards(){
     buy.className="mm-cta-ready";buy.href=checkoutHref(p.id);buy.target="_blank";buy.rel="noopener noreferrer";buy.textContent="Comprar com segurança ↗";
   }else{
     buy.className="mm-cta-disabled";buy.type="button";buy.disabled=true;buy.textContent="Compra ainda indisponível";
+  }
+  const curator=(window.MIMOMIX_PRODUCT_NOTES||{})[id];
+  if(curator){
+    const editorial=document.createElement("div");editorial.className="mm-v10-curator";
+    const title=document.createElement("strong");title.textContent="💡 Nossa análise";
+    const copy=document.createElement("span");copy.textContent=curator;
+    editorial.append(title,copy);
+    const priceBlock=info.querySelector(".price-hold");
+    if(priceBlock)info.insertBefore(editorial,priceBlock);else info.append(editorial);
   }
   info.append(status,buy);
  }
@@ -112,9 +126,11 @@ fetch("catalogo-yampi.json?v=9",{cache:"no-store"}).then(res=>res.ok?res.json():
     try{const photo=new URL(record.imageUrl);if(photo.protocol==="https:")window.MIMOMIX_PUBLIC_PRODUCT_IMAGES[record.id]=photo.href}catch(_){}
   }
   yampi.set(record.id,record);
+  if(typeof record.illustrationAsset==="string" && /^assets\/[a-z0-9-]+\.svg$/.test(record.illustrationAsset)) window.MIMOMIX_EDITORIAL_IMAGES[record.id]=record.illustrationAsset;
+  if(typeof record.curatorNote==="string")window.MIMOMIX_PRODUCT_NOTES[record.id]=record.curatorNote.slice(0,280);
   const exists=catalog.some(p=>p.id===record.id);
   if(!exists && record.showInCatalog===true && typeof record.name==="string" && record.name.trim() && record.name.length<=130){
-    catalog.push({id:record.id,name:record.name.trim(),summary:typeof record.description==="string"?record.description.slice(0,220):"Produto em preparação na MimoMix.",category:["Casa","Brinquedos","Tecnologia","Games","Beleza","Automotivo","Pet","Presentes"].includes(record.category)?record.category:"Tecnologia",emoji:"🛍️",bg:"#efe5ff",url:"https://www.yampi.com.br/"});
+    catalog.push({id:record.id,name:record.name.trim(),summary:typeof record.description==="string"?record.description.slice(0,220):"Produto em preparação na MimoMix.",category:["Casa","Brinquedos","Tecnologia","Games","Beleza","Automotivo","Pet","Presentes"].includes(record.category)?record.category:"Tecnologia",emoji:typeof record.emoji==="string"?record.emoji.slice(0,4):"🛍️",bg:typeof record.bg==="string"&&/^#[0-9a-fA-F]{6}$/.test(record.bg)?record.bg:"#efe5ff",url:"https://www.yampi.com.br/"});
   }
  }
  loaded=true;refresh();

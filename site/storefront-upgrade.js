@@ -6,6 +6,7 @@ const money=(v)=>Number(v).toLocaleString("pt-BR",{style:"currency",currency:"BR
 const esc=(x)=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const authorizedHost=(s)=>{try{const url=new URL(s);return url.protocol==="https:" && /(^|\.)yampi\.com\.br$/.test(url.hostname)?url.href:null}catch(_){return null}};
 const yampi=new Map();
+window.MIMOMIX_PUBLIC_PRODUCT_IMAGES = Object.create(null);
 let loaded=false;
 function isReady(p){
  const r=yampi.get(p.id);
@@ -107,6 +108,9 @@ fetch("catalogo-yampi.json?v=9",{cache:"no-store"}).then(res=>res.ok?res.json():
   const record={...item};
   if(record.checkoutUrl && !authorizedHost(record.checkoutUrl))record.checkoutUrl="";
   if(record.approvedForSale!==true)record.status="inactive";
+  if(record.imageApproved===true && typeof record.imageUrl==="string"){
+    try{const photo=new URL(record.imageUrl);if(photo.protocol==="https:")window.MIMOMIX_PUBLIC_PRODUCT_IMAGES[record.id]=photo.href}catch(_){}
+  }
   yampi.set(record.id,record);
   const exists=catalog.some(p=>p.id===record.id);
   if(!exists && record.showInCatalog===true && typeof record.name==="string" && record.name.trim() && record.name.length<=130){

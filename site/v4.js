@@ -27,12 +27,15 @@
         const id=card.querySelector("[data-open]")?.dataset.open,wrap=card.querySelector(".product-picture");
         if(!id||!wrap||wrap.querySelector("img.product-photo"))continue;
         const image=document.createElement("img");
-        image.src=images[id]||images.bluetooth;
-        image.alt="Imagem ilustrativa da categoria; não representa necessariamente o produto ofertado";
+        const approved=(window.MIMOMIX_PUBLIC_PRODUCT_IMAGES||{})[id];
+        const imageSrc=approved||images[id];
+        if(!imageSrc)continue;
+        image.src=imageSrc;
+        image.alt=approved?"Fotografia autorizada do produto":"Imagem ilustrativa da categoria; não representa necessariamente o produto ofertado";
         image.loading="lazy";image.className="product-photo";
         withFallback(image,wrap,"photo-failed");
         wrap.insertBefore(image,wrap.querySelector(".em"));
-        const note=document.createElement("span");note.className="photo-label";note.textContent="Imagem ilustrativa";
+        const note=document.createElement("span");note.className="photo-label";note.textContent=approved?"Foto fornecida e autorizada":"Imagem ilustrativa";
         wrap.appendChild(note);
       }
     }

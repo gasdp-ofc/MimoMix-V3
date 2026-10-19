@@ -10,7 +10,7 @@ window.MIMOMIX_PUBLIC_PRODUCT_IMAGES = Object.create(null);
 let loaded=false;
 function isReady(p){
  const r=yampi.get(p.id);
- return r && r.status==="active" && r.approvedForSale===true && r.shippingVerified===true && r.stockVerified===true && n(r.price)>0 && authorizedHost(r.checkoutUrl);
+ return !!(window.MIMOMIX_CHECKOUT && window.MIMOMIX_CHECKOUT.enabled===true && r && r.status==="active" && r.approvedForSale===true && r.shippingVerified===true && r.stockVerified===true && n(r.price)>0 && authorizedHost(r.checkoutUrl));
 }
 function currentPrice(p){
  const record=yampi.get(p.id);

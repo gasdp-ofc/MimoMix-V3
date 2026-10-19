@@ -9,7 +9,20 @@ try{let a=JSON.parse(localStorage.getItem("mimomix_favorites")||"[]");if(Array.i
 const money=v=>Number(v).toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
 const safe=s=>String(s??"").replace(/[&<>"']/g,x=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[x]));
 function toast(t){const el=$("toast");el.textContent=t;el.hidden=false;clearTimeout(window.mimoToast);window.mimoToast=setTimeout(()=>el.hidden=true,3500)}
-function image(p,alt){if(p.images?.length){const src=p.images[0];if(/^https:\/\/images\.yampi\.me\//.test(src))return '<img loading="lazy" src="'+safe(src)+'" alt="'+safe(alt||p.name)+'">'}return '<span class="art" role="img" aria-label="Arte ilustrativa">'+(emoji[p.category]||"🎁")+'</span>'}
+function image(p,alt){
+ const photo=Array.isArray(p.images)&&p.images.length&&/^https:\/\/images\.yampi\.me\//.test(p.images[0])?p.images[0]:null;
+ const promo=typeof p.marketingArtwork==="string"&&/^assets\/promos\/[a-z0-9-]+\.webp$/.test(p.marketingArtwork)?p.marketingArtwork:null;
+ const src=promo||photo;
+ const placeholder='<span class="art" role="img" aria-label="Arte da categoria">'+(emoji[p.category]||"🎁")+'</span>';
+ return placeholder+(src?'<img class="product-visual '+(promo?"promo-art":"source-photo")+'" loading="lazy" decoding="async" src="'+safe(src)+'" data-backup="'+safe(photo||"")+'" alt="'+safe(alt||p.name)+'">':"");
+}
+document.addEventListener("error",function(e){
+ const img=e.target;if(!(img instanceof HTMLImageElement)||!img.classList.contains("product-visual"))return;
+ const back=img.dataset.backup;
+ if(back&&img.src!==back&&/^https:\/\/images\.yampi\.me\//.test(back)){
+  img.dataset.backup="";img.classList.remove("promo-art");img.classList.add("source-photo");img.src=back;
+ }else img.style.display="none";
+},true);
 function applyFilter(cat){category=cat;favoritesOnly=false;render();$("produtos").scrollIntoView({behavior:"smooth"})}
 function visible(){
  let rows=products.filter(p=>(category==="Todos"||p.category===category)&&(!favoritesOnly||favorites.includes(p.id))&&((p.name+" "+p.category+" "+p.sku).toLocaleLowerCase("pt-BR").includes(search)));
@@ -23,7 +36,7 @@ function render(){const rows=visible();$("visible-number").textContent=rows.leng
  document.querySelectorAll("#nav-links [data-category]").forEach(n=>n.classList.toggle("active",!favoritesOnly&&n.dataset.category===category));
  $("product-grid").innerHTML=rows.map((p,i)=>{
  const cc=colors[p.category]||["#5614ce","#ee3296"];
- const photo=p.images?.length?"Foto do cadastro Yampi":"Arte ilustrativa";
+ const photo=p.marketingArtwork?"Imagem promocional ilustrativa":p.images?.length?"Foto do cadastro Yampi":"Arte ilustrativa";
  return '<article class="product"><div class="photo" style="--grad:linear-gradient(130deg,'+cc[0]+','+cc[1]+')"><div class="picture-card">'+image(p)+'</div><span class="badge">'+(i<7&&category==="Todos"&&sort==="featured"?"✨ DESTAQUE":"💜 MIMOMIX")+'</span><button type="button" class="heart '+(favorites.includes(p.id)?"selected":"")+'" aria-label="'+(favorites.includes(p.id)?"Remover dos favoritos":"Adicionar aos favoritos")+'" data-fav="'+safe(p.id)+'">'+(favorites.includes(p.id)?"♥":"♡")+'</button><span class="photo-note">'+photo+'</span></div>'+
  '<div class="details"><span class="cat">'+safe(p.category).toUpperCase()+'</span><h3>'+safe(p.name)+'</h3><p class="description">'+safe((p.description||"Produto do catálogo da MimoMix.").slice(0,105))+'</p>'+
  '<div class="stars"><span aria-hidden="true">☆☆☆☆☆</span> Sem avaliações verificadas</div>'+
@@ -32,8 +45,8 @@ function render(){const rows=visible();$("visible-number").textContent=rows.leng
  }).join("");
 }
 function storeFavorites(){try{localStorage.setItem("mimomix_favorites",JSON.stringify(favorites))}catch(_){}}
-function modal(p){const a=(p.images||[]).filter(u=>/^https:\/\/images\.yampi\.me\//.test(u));const picture=a.length?'<img src="'+safe(a[0])+'" alt="'+safe(p.name)+'">':'<span>'+ (emoji[p.category]||"🎁") +'</span>';
- $("modal-body").innerHTML='<div class="modal-layout"><div><div class="modal-media">'+picture+'</div><small style="color:#8d79a5">'+(a.length?"Imagem do cadastro Yampi":"Arte ilustrativa; fotografia ainda não enviada")+'</small></div><div class="modal-info"><span class="section-label">'+safe(p.category)+'</span><h2>'+safe(p.name)+'</h2><p>SKU: '+safe(p.sku)+'</p><div class="stars"><span>☆☆☆☆☆</span> Ainda sem avaliações verificadas</div><p class="modal-price">'+money(p.price)+'</p><p class="modal-note">Preço cadastrado na Yampi. Produto ativo no cadastro, porém ainda não disponível para venda na exportação consultada. Checkout pendente de validação.</p><div class="modal-tabs"><button type="button" data-tab="desc" class="active">Descrição</button><button type="button" data-tab="spec">Informações técnicas</button><button type="button" data-tab="rev">Avaliações</button></div><div class="modal-panel" id="modal-panel">'+safe(p.description||"Descrição do fornecedor em revisão")+'</div><button type="button" disabled class="buy-disabled" style="margin-top:15px;padding:12px 20px;border-radius:12px">🔒 Comprar agora (em preparação)</button></div></div>';
+function modal(p){const a=(p.images||[]).filter(u=>/^https:\/\/images\.yampi\.me\//.test(u));const picture=image(p,p.name);
+ $("modal-body").innerHTML='<div class="modal-layout"><div><div class="modal-media">'+picture+'</div><small style="color:#8d79a5">'+(p.marketingArtwork?"Arte promocional ilustrativa":a.length?"Imagem do cadastro Yampi":"Arte ilustrativa; fotografia ainda não enviada")+'</small></div><div class="modal-info"><span class="section-label">'+safe(p.category)+'</span><h2>'+safe(p.name)+'</h2><p>SKU: '+safe(p.sku)+'</p><div class="stars"><span>☆☆☆☆☆</span> Ainda sem avaliações verificadas</div><p class="modal-price">'+money(p.price)+'</p><p class="modal-note">Preço cadastrado na Yampi. Produto ativo no cadastro, porém ainda não disponível para venda na exportação consultada. Checkout pendente de validação.</p><div class="modal-tabs"><button type="button" data-tab="desc" class="active">Descrição</button><button type="button" data-tab="spec">Informações técnicas</button><button type="button" data-tab="rev">Avaliações</button></div><div class="modal-panel" id="modal-panel">'+safe(p.description||"Descrição do fornecedor em revisão")+'</div><button type="button" disabled class="buy-disabled" style="margin-top:15px;padding:12px 20px;border-radius:12px">🔒 Comprar agora (em preparação)</button></div></div>';
  const dims=p.dimensions||{};
  const tabs={desc:safe(p.description||"Descrição sob revisão"),spec:'<strong>SKU:</strong> '+safe(p.sku)+'<br><strong>Peso cadastrado:</strong> '+(p.weight!=null?safe(p.weight)+" kg":"não informado")+'<br><strong>Dimensões cadastradas (A × L × C):</strong> '+[dims.height,dims.width,dims.length].map(x=>x!=null?safe(x):"—").join(" × ")+' cm<br><small>Dados informados no CSV e ainda sujeitos à conferência da embalagem.</small>',rev:'<strong>☆☆☆☆☆ Sem avaliações verificadas.</strong><br>Comentários serão publicados apenas após compras reais e autorização dos clientes.'};
  $("modal-body").querySelectorAll("[data-tab]").forEach(btn=>btn.addEventListener("click",()=>{$("modal-panel").innerHTML=tabs[btn.dataset.tab];$("modal-body").querySelectorAll("[data-tab]").forEach(b=>b.classList.toggle("active",b===btn))}));
@@ -42,7 +55,7 @@ function modal(p){const a=(p.images||[]).filter(u=>/^https:\/\/images\.yampi\.me
 function renderCategories(){const count=c=>products.filter(x=>x.category===c).length;$("category-grid").innerHTML=categories.filter(x=>x!=="Todos").map(c=>'<button class="category-tile" data-category="'+safe(c)+'"><span class="emoji">'+emoji[c]+'</span>'+safe(c)+' <small style="color:#9a8aaa">'+count(c)+' itens</small></button>').join("")}
 function setHero(){const withImages=products.filter(p=>p.images&&p.images.length>0);[1,2,3].forEach((n,i)=>{const el=$("hero-pic"+n),p=withImages[[0,2,1][i]];if(el&&p){el.innerHTML=image(p,p.name)}})}
 function rotateHighlights(){if(document.hidden||!products.length)return;const p=products[Math.floor((Date.now()/23000)%products.length)];$("popup-picture").textContent=emoji[p.category]||"🎁";$("popup-name").textContent="✨ Achadinho em destaque";$("popup-copy").textContent=p.name;$("feature-popup").hidden=false;clearTimeout(window.mimoPop);window.mimoPop=setTimeout(()=>$("feature-popup").hidden=true,5500)}
-async function load(){try{const response=await fetch("catalogo-yampi-publico.json?v=11",{cache:"no-store"});if(!response.ok)throw new Error("Erro HTTP "+response.status);const data=await response.json();if(!Array.isArray(data.products))throw new Error("Catálogo inválido");products=data.products.filter(p=>p.active===true&&typeof p.name==="string"&&Number.isFinite(p.price));renderCategories();setHero();render();}catch(e){$("product-grid").innerHTML='<div class="loading">Não foi possível carregar o catálogo. Tente atualizar a página.</div>';console.error(e)}}
+async function load(){try{const response=await fetch("catalogo-yampi-publico.json?v=12",{cache:"no-store"});if(!response.ok)throw new Error("Erro HTTP "+response.status);const data=await response.json();if(!Array.isArray(data.products))throw new Error("Catálogo inválido");products=data.products.filter(p=>p.active===true&&typeof p.name==="string"&&Number.isFinite(p.price));renderCategories();setHero();render();}catch(e){$("product-grid").innerHTML='<div class="loading">Não foi possível carregar o catálogo. Tente atualizar a página.</div>';console.error(e)}}
 document.addEventListener("click",e=>{const categoryBtn=e.target.closest("[data-category]"),favor=e.target.closest("[data-fav]"),det=e.target.closest("[data-product]"),camp=e.target.closest("[data-campaign]");
  if(categoryBtn){applyFilter(categoryBtn.dataset.category)}if(camp){applyFilter(camp.dataset.campaign)}
  if(favor){const id=favor.dataset.fav;favorites=favorites.includes(id)?favorites.filter(s=>s!==id):[...favorites,id];storeFavorites();render();toast(favorites.includes(id)?"Produto adicionado aos favoritos.":"Produto removido dos favoritos.")}

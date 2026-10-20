@@ -32,6 +32,7 @@ function visible(){
  return rows;
 }
 function checkoutUrl(p){
+ if(window.MIMOMIX_CHECKOUT?.enabled!==true)return null;
  if(p.active!==true||p.available!==true||!(p.price>0)||typeof p.checkout!=="string")return null;
  try{const u=new URL(p.checkout);return u.protocol==="https:"&&/(^|\.)yampi\.com\.br$/.test(u.hostname)?u.href:null}catch(_){return null}
 }
@@ -76,6 +77,6 @@ $("cart-btn").addEventListener("click",()=>toast("O checkout da Yampi será habi
 $("modal-close").addEventListener("click",()=>$("product-modal").close());
 $("product-modal").addEventListener("click",e=>{if(e.target.id==="product-modal")e.target.close()});
 $("popup-close").addEventListener("click",()=>{$("feature-popup").hidden=true;clearInterval(featureTimer);});
-if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)featureTimer=setInterval(rotateHighlights,28000);
+if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){featureTimer=setInterval(rotateHighlights,28000);window.setTimeout(rotateHighlights,9000);}
 load();
 })();

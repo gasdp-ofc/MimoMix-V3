@@ -11,7 +11,7 @@ const safe=s=>String(s??"").replace(/[&<>"']/g,x=>({"&":"&amp;","<":"&lt;",">":"
 function toast(t){const el=$("toast");el.textContent=t;el.hidden=false;clearTimeout(window.mimoToast);window.mimoToast=setTimeout(()=>el.hidden=true,3500)}
 function image(p,alt){
  const photo=Array.isArray(p.images)&&p.images.length&&/^https:\/\/images\.yampi\.me\//.test(p.images[0])?p.images[0]:null;
- const promo=typeof p.marketingArtwork==="string"&&/^assets\/promos\/[a-z0-9-]+\.(?:webp|jpg)$/.test(p.marketingArtwork)?p.marketingArtwork:null;
+ const promo=typeof p.marketingArtwork==="string"&&/^(?:assets\/promos\/[a-z0-9-]+\.(?:webp|jpg)|assets\/processador-portatil-ilustrativo\.svg)$/.test(p.marketingArtwork)?p.marketingArtwork:null;
  const src=promo||photo;
  const placeholder='<span class="art" role="img" aria-label="Arte da categoria">'+(emoji[p.category]||"🎁")+'</span>';
  return placeholder+(src?'<img class="product-visual '+(promo?"promo-art":"source-photo")+'" loading="lazy" decoding="async" src="'+safe(src)+'" data-backup="'+safe(photo||"")+'" alt="'+safe(alt||p.name)+'">':"");

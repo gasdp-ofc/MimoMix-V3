@@ -1,0 +1,64 @@
+/* MimoMix V12 — design de vitrine, confiança e checkout transparente */
+:root{--mm-violet:#6332c9;--mm-ink:#241338;--mm-cream:#fffaf3;--mm-lavender:#f1e9ff}
+body{background:linear-gradient(180deg,#fff 0%,#fcfaff 40%,#f7f0ff 100%);overflow-x:hidden}
+.ticker{background:#311453;gap:38px;box-shadow:0 4px 24px #17093522}
+.main-header{box-shadow:0 8px 35px #35204c14}
+.header-main .brand img{filter:drop-shadow(0 8px 9px #8c42d52c)}
+.hero{isolation:isolate;border:1px solid #b16eea66;box-shadow:0 25px 70px #5717a044;background:radial-gradient(ellipse at 73% 34%,#ea5ccd 0,#9140d1 30%,transparent 66%),linear-gradient(125deg,#21094b,#6126bc 68%,#9d33ba)}
+.hero:after{content:"";position:absolute;inset:-30%;pointer-events:none;background:radial-gradient(circle,#ffffff2a 0 1px,transparent 2px);background-size:26px 26px;mask-image:linear-gradient(90deg,transparent,black)}
+.hero .tile{border:2px solid #ffffff83;box-shadow:0 27px 43px #2c075b63;transition:transform .5s ease}
+.hero .tile img{object-fit:cover}
+.hero .tile.t1{animation:mmFloat 6s ease-in-out infinite}.hero .tile.t2{animation:mmFloat 7s ease-in-out -2s infinite}.hero .tile.t3{animation:mmFloat 5s ease-in-out -3s infinite}
+@keyframes mmFloat{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.trust-strip>div{background:linear-gradient(155deg,#fff,#fdf8ff);border-color:#e3d4fb;box-shadow:0 8px 25px #4823870f}
+.trust-strip>div strong{color:#3c2360}
+.categories .category-tile,.products .product{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.categories .category-tile:hover{transform:translateY(-4px)}
+.products .product{background:#fff;border:1px solid #e9ddf7;border-radius:22px;overflow:hidden;box-shadow:0 10px 30px #3d146e0a}
+.products .product:hover{transform:translateY(-6px);border-color:#ba9cea;box-shadow:0 25px 54px #4f24912a}
+.products .product .photo{overflow:hidden}
+.products .product .photo .picture-card{border-radius:18px;overflow:hidden}
+.products .product img.product-visual{transition:transform .38s ease}
+.products .product:hover img.product-visual{transform:scale(1.045)}
+.products .product .details{display:flex;flex-direction:column}
+.products .product .description{line-height:1.58;min-height:45px}
+.products .product .actions{margin-top:auto}
+.products .product .price{letter-spacing:-.04em}
+.products .product .stars{font-size:11px;color:#8a7b9d}
+.products .product button.buy-disabled{opacity:.7}
+.feature-popup{box-shadow:0 15px 50px #35104d3b!important;border:1px solid #dfc8f4!important;border-radius:18px!important;max-width:min(380px,calc(100% - 28px))}
+.feature-popup small{display:block;color:#766889;font-size:10px}
+.mm-assurance{margin-top:50px;margin-bottom:45px;background:#fff;border:1px solid #e4d9f5;border-radius:27px;padding:28px 30px;box-shadow:0 17px 42px #3b1f720f}
+.mm-assurance-header{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.mm-assurance-header h2{font:850 clamp(24px,3vw,38px)/1.15 Outfit,system-ui;margin:6px 0;color:#31134b;letter-spacing:-.035em}
+.mm-assurance-header p{margin:0;color:#77668a;font-size:13px;line-height:1.55;max-width:640px}
+.mm-assurance-tag{font-size:11px;font-weight:900;color:#7c43b0;background:#f6ecff;padding:10px 15px;border-radius:100px}
+.mm-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:22px 0}
+.mm-steps article{background:linear-gradient(155deg,#fbf7ff,#fff);border:1px solid #eee2f8;padding:19px;border-radius:19px}
+.mm-steps article span{font-size:25px}.mm-steps article h3{margin:10px 0 6px;font-size:14px;color:#3c2154}.mm-steps article p{font-size:12px;line-height:1.65;color:#786782;margin:0}
+.mm-assurance details{border-top:1px solid #ece3f4;padding:12px 2px;font-size:13px;color:#634a76}
+.mm-assurance summary{font-size:13px;font-weight:800;color:#39214f;cursor:pointer}
+.mm-assurance details p{line-height:1.7;margin:9px 0 4px}
+.mm-assurance a{color:#6e2acf;text-decoration:underline;text-underline-offset:3px}
+.mm-curated{text-align:center;margin:45px auto 20px;max-width:950px}
+.mm-curated p{margin:8px auto 0;color:#8d7399;font-size:12px;line-height:1.7}
+.mm-curated strong{font:850 clamp(22px,3vw,37px)/1.13 Outfit;color:#361c58}
+.mm-curated strong em{font-style:normal;color:#a421b1}
+.mm-modal-extra{margin:18px 0;border:1px solid #e6d9f3;background:linear-gradient(145deg,#fff,#f8f3ff);border-radius:18px;padding:18px}
+.mm-modal-extra h3{font-size:15px;margin:0 0 8px;color:#42215a}
+.mm-modal-extra p{font-size:12px;color:#766582;line-height:1.65;margin:6px 0}
+.mm-modal-extra label{display:block;font-size:11px;font-weight:800;margin:12px 0 8px;color:#4a3366}
+.mm-cep-row{display:flex;gap:8px}
+.mm-cep-row input{width:140px;max-width:55%;border:1px solid #dfcfef;border-radius:12px;padding:12px;font-weight:700;color:#37194f;background:white}
+.mm-cep-row button{background:#6930c3;color:white;border:0;border-radius:12px;padding:11px 16px;font-weight:850;font-size:12px}
+.mm-cep-message{min-height:24px}
+.mm-preview-grid{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}
+.mm-preview-grid span{font-size:11px;background:#f0eaf9;padding:8px 11px;border-radius:8px;color:#5f4080;font-weight:750}
+.mm-gallery-extras{display:flex;flex-wrap:wrap;gap:10px;margin-top:11px}
+.mm-gallery-extras button{width:72px;height:70px;flex:none;padding:4px;border:2px solid #dfc8f1;border-radius:11px;background:#fff}
+.mm-gallery-extras button.active{border-color:#823cda;box-shadow:0 0 0 3px #8b3cd41c}
+.mm-gallery-extras img{height:100%;width:100%;object-fit:contain}
+.mm-gallery-extras button:focus-visible,.mm-cep-row button:focus-visible{outline:3px solid #fba7ff;outline-offset:2px}
+@media(max-width:850px){.mm-steps{grid-template-columns:1fr}.mm-assurance{padding:22px}.hero .tile.t1{animation:none}}
+@media(max-width:600px){.mm-assurance{border-radius:20px;padding:18px}.mm-preview-grid{gap:6px}.mm-steps{gap:9px}.mm-steps article{padding:13px}.feature-popup{bottom:15px!important;left:14px!important;right:14px!important}.products .product:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.hero .tile{animation:none!important}.products .product,.products .product img.product-visual{transition:none!important}}

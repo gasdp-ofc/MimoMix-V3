@@ -395,7 +395,8 @@
         "width": 10,
         "length": 10
       },
-      "checkout": null
+      "checkout": null,
+      "marketingArtwork": "assets/processador-portatil-ilustrativo.svg"
     },
     {
       "id": "espremedor-eletrico-portatil-usb",
